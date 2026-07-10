@@ -8,153 +8,86 @@
         /* ==========================================================================
             PALETA TECMILENIO: Navy Blue (#002147) y Soft Green (#6fb338)
             ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; scroll-behavior: smooth; }
 
-        body {
-            background-color: #002147; /* Navy Blue Tecmilenio */
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-        }
+        body { background-color: #002147; color: #ffffff; line-height: 1.6; overflow-x: hidden; position: relative; }
 
-        h1, h2, h3, .logo, .contact-label, .btn {
-            font-weight: 800; 
-            letter-spacing: -0.5px;
-        }
-
-        p {
-            color: #d1d5db; /* Gris claro para legibilidad sobre Navy */
-            transition: color 0.3s ease;
-        }
+        h1, h2, h3, .logo, .contact-label, .btn { font-weight: 800; letter-spacing: -0.5px; }
+        p { color: #d1d5db; transition: color 0.3s ease; }
 
         /* ANIMACIONES */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes floatEffect {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        /* FONDO */
-        body::before, body::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            z-index: -2;
-            opacity: 0.1;
-        }
-
-        body::before {
-            width: 400px;
-            height: 400px;
-            background-color: #6fb338; /* Soft Green */
-            top: 15%;
-            right: -150px;
-            animation: floatEffect 8s ease-in-out infinite;
-        }
-
-        body::after {
-            width: 550px;
-            height: 550px;
-            background-color: #00152e; /* Oscurecido de Navy */
-            bottom: 10%;
-            left: -200px;
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes floatEffect { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        @keyframes guitarPluck { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
         /* Navegación */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 10%;
-            background-color: rgba(0, 33, 71, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid #6fb338;
-        }
-
-        .logo { font-size: 1.5rem; }
-        .logo span { color: #6fb338; }
-
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background-color: rgba(0, 33, 71, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 100; border-bottom: 2px solid #6fb338; }
+        .logo { font-size: 1.5rem; } .logo span { color: #6fb338; }
+        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
         .nav-links a { color: #ffffff; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: #6fb338; }
 
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; }
+        .hero h1 span { color: #6fb338; }
+
         /* Botones */
-        .btn {
-            display: inline-block;
-            padding: 0.85rem 2rem;
-            border: 2px solid #6fb338;
-            color: #ffffff;
-            background-color: #6fb338;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+        .btn { display: inline-block; padding: 0.85rem 2rem; border: 2px solid #6fb338; color: #ffffff; background-color: #6fb338; border-radius: 4px; transition: all 0.3s ease; text-decoration: none; width: max-content; }
+        .btn:hover { background-color: transparent; color: #6fb338; cursor: pointer; }
 
-        .btn:hover { background-color: transparent; color: #6fb338; }
-
-        .btn.btn-outline { background-color: transparent; color: #6fb338; }
-        .btn.btn-outline:hover { background-color: #6fb338; color: #ffffff; }
-
-        /* Estilos de Secciones y Tarjetas */
-        section h2::after { background-color: #6fb338; }
-
-        .sobre-mi-box, .card, .gallery-item {
-            background-color: #003366; /* Un tono de azul ligeramente más claro para contraste */
-            border: 1px solid #6fb338;
-        }
-
-        .card:hover, .gallery-item:hover {
-            background-color: #6fb338;
-            color: #002147;
-        }
-
+        /* Secciones */
+        section { padding: 7rem 10% 2rem 10%; }
+        section h2::after { content: ''; display: block; width: 60px; height: 4px; background-color: #6fb338; margin-top: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
+        .card, .gallery-item, .sobre-mi-box { background-color: #003366; padding: 2.5rem; border-radius: 8px; border: 1px solid #6fb338; transition: 0.3s; }
+        .card:hover, .gallery-item:hover { background-color: #6fb338; color: #002147; transform: translateY(-8px); }
         .card:hover h3, .card:hover p { color: #002147; }
-        .gallery-item:hover h3, .gallery-item:hover p { color: #002147; }
-
-        /* Detalle de énfasis */
-        .hero h1 span, .collage-item:hover { color: #6fb338; border-color: #6fb338; }
-        .timeline-item { border-left: 3px solid #6fb338; }
-        .timeline-item div { background-color: #6fb338; }
-
+        .pluck-active { animation: guitarPluck 0.3s ease; }
     </style>
 </head>
 <body>
-
-    <!-- El resto de tu estructura HTML se mantiene igual, 
-         el CSS aplicado arriba ya controlará los nuevos colores -->
 
     <nav>
         <div class="logo">MI <span>PORTAFOLIO</span>.</div>
         <ul class="nav-links">
             <li><a href="#sobre-mi">Sobre Mí</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#galeria">Evidencia</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <div class="hero" style="padding-top: 150px;">
+    <div class="hero">
         <h1>Hola, mi nombre es <br><span>Nestor D. Espinoza-Moreno.</span></h1>
-        <p>Liderazgo estratégico, disciplina y una visión multicultural aplicada al mundo de los Negocios Internacionales.</p>
+        <p>Liderazgo, disciplina y una visión global aplicada a los Negocios Internacionales.</p>
         <a href="#proyectos" class="btn">Ver Mi Trabajo</a>
     </div>
 
-    <!-- ... (El resto del contenido original funciona con las clases definidas) ... -->
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <div class="sobre-mi-box">
+            <p>Soy un joven comprometido con el liderazgo, la disciplina y el impacto global. Mi formación en JROTC y mi trayectoria en la música clásica han forjado en mí una mentalidad resiliente y organizada. Actualmente, me preparo para iniciar mi camino profesional en Negocios Internacionales.</p>
+        </div>
+    </section>
+
+    <section id="proyectos">
+        <h2>Proyectos y Logros</h2>
+        <div class="grid">
+            <div class="card" onclick="this.classList.add('pluck-active'); setTimeout(()=>this.classList.remove('pluck-active'), 300)">
+                <h3>Liderazgo (JROTC)</h3>
+                <p>Rango de Sargento y experiencia competitiva en Drill y Raider.</p>
+            </div>
+            <div class="card" onclick="this.classList.add('pluck-active'); setTimeout(()=>this.classList.remove('pluck-active'), 300)">
+                <h3>Certificación ESB</h3>
+                <p>Acreditación en Entrepreneurship and Small Business.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <a href="mailto:morenonestor788@gmail.com" class="btn">Enviar correo</a>
+    </section>
 
 </body>
 </html>
