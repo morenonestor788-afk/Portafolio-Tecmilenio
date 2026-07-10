@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Nestor D. Espinoza-Moreno</title>
+    <style>
+        /* ==========================================================================
+            PALETA TECMILENIO: Navy Blue (#002147) y Soft Green (#6fb338)
+            ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #002147; /* Navy Blue Tecmilenio */
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, .logo, .contact-label, .btn {
+            font-weight: 800; 
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: #d1d5db; /* Gris claro para legibilidad sobre Navy */
+            transition: color 0.3s ease;
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatEffect {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* FONDO */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: -2;
+            opacity: 0.1;
+        }
+
+        body::before {
+            width: 400px;
+            height: 400px;
+            background-color: #6fb338; /* Soft Green */
+            top: 15%;
+            right: -150px;
+            animation: floatEffect 8s ease-in-out infinite;
+        }
+
+        body::after {
+            width: 550px;
+            height: 550px;
+            background-color: #00152e; /* Oscurecido de Navy */
+            bottom: 10%;
+            left: -200px;
+        }
+
+        /* Navegación */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background-color: rgba(0, 33, 71, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #6fb338;
+        }
+
+        .logo { font-size: 1.5rem; }
+        .logo span { color: #6fb338; }
+
+        .nav-links a { color: #ffffff; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: #6fb338; }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border: 2px solid #6fb338;
+            color: #ffffff;
+            background-color: #6fb338;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover { background-color: transparent; color: #6fb338; }
+
+        .btn.btn-outline { background-color: transparent; color: #6fb338; }
+        .btn.btn-outline:hover { background-color: #6fb338; color: #ffffff; }
+
+        /* Estilos de Secciones y Tarjetas */
+        section h2::after { background-color: #6fb338; }
+
+        .sobre-mi-box, .card, .gallery-item {
+            background-color: #003366; /* Un tono de azul ligeramente más claro para contraste */
+            border: 1px solid #6fb338;
+        }
+
+        .card:hover, .gallery-item:hover {
+            background-color: #6fb338;
+            color: #002147;
+        }
+
+        .card:hover h3, .card:hover p { color: #002147; }
+        .gallery-item:hover h3, .gallery-item:hover p { color: #002147; }
+
+        /* Detalle de énfasis */
+        .hero h1 span, .collage-item:hover { color: #6fb338; border-color: #6fb338; }
+        .timeline-item { border-left: 3px solid #6fb338; }
+        .timeline-item div { background-color: #6fb338; }
+
+    </style>
+</head>
+<body>
+
+    <!-- El resto de tu estructura HTML se mantiene igual, 
+         el CSS aplicado arriba ya controlará los nuevos colores -->
+
+    <nav>
+        <div class="logo">MI <span>PORTAFOLIO</span>.</div>
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#galeria">Evidencia</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" style="padding-top: 150px;">
+        <h1>Hola, mi nombre es <br><span>Nestor D. Espinoza-Moreno.</span></h1>
+        <p>Liderazgo estratégico, disciplina y una visión multicultural aplicada al mundo de los Negocios Internacionales.</p>
+        <a href="#proyectos" class="btn">Ver Mi Trabajo</a>
+    </div>
+
+    <!-- ... (El resto del contenido original funciona con las clases definidas) ... -->
+
+</body>
+</html>
